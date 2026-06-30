@@ -2,7 +2,7 @@ name : CI/CD with terraform
 on:
   push:
     branches:
-      - Complete-cicd-with-terraform-aws
+      - main
 
 env:
   AWS_REGION: us-east-1
