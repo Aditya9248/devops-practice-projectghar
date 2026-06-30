@@ -1,12 +1,15 @@
-varibale "region" {
-    default = "us-east-1"
+variable "region" {
+  default = "us-east-1"
 }
-varibale "public_key" { 
 
+variable "public_key" {
+  type = string
 }
-varibale "private_key" {
 
+variable "private_key" {
+  type = string
 }
-varibale "key_name" {
-    
+
+variable "key_name" {
+  type = string
 }
