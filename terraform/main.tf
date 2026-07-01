@@ -71,9 +71,9 @@ resource "aws_security_group" "maingroup" {
             to_port = 80
         }
     ]
-
+}
 resource "aws_key_pair" "deployer" {
-    name = var.key_name
+    key_name = var.key_name
     public_key = var.public.key
 }
 
