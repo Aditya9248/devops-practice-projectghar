@@ -5,18 +5,18 @@ terraform {
             version = "~>4.0"
         }
     }
-    backend"s3"{
+    backend "s3" {
         key = "aws/ec2-deploy/terraform.tfstate"
     }
 }
-provider"aws'{
+provider "aws' {
     region = var.region
 }    
 resource "aws_instance" "name" {
     ami = "ami-0aba19e56f3eaec05"
     instance_type = "t2.micro"
     key_name = aws_key_pair.deployer.key_name
-    vpc_secutity_group_ids = [aws_security_group.maingroup.id]
+    vpc_security_group_ids = [aws_security_group.maingroup.id]
     iam_instance_profile = aws_iam_instance_profile.ec2-profile.name
     connection {
         type = "ssh"
@@ -74,10 +74,10 @@ resource "aws_security_group" "maingroup" {
 }
 resource "aws_key_pair" "deployer" {
     key_name = var.key_name
-    public_key = var.public.key
+    public_key = var.public_key
 }
 
-output "instance_publi_ip" {
-    value = aws_instance.server.public_ip
+output "instance_public_ip" {
+    value = aws_instance.name.public_ip
     sensitive = true
 }
